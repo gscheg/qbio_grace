@@ -87,12 +87,13 @@ Normal_nonmut_TP53_counts <- htseq_counts[TP53_ENSG_name, colnames(htseq_counts)
 
 #boxplot(mut_TP53_counts, nonmut_TP53_counts, names = c("mutated TP53 samples", "non-mutated TP53 samples"), 
         #ylab = "HTSeq mRNA counts for TP53 gene")
+pdf("TP53_RNA_vs_mut_boxplot.pdf")
 boxplot(LumA_mut_TP53_counts, LumA_nonmut_TP53_counts, LumB_mut_TP53_counts, LumB_nonmut_TP53_counts, Basal_mut_TP53_counts, 
         Basal_nonmut_TP53_counts, Her2_mut_TP53_counts, Her2_nonmut_TP53_counts, Normal_mut_TP53_counts, Normal_nonmut_TP53_counts,
         names = c("LumA mutated", "LumA non-mutated", "LumB mutated", "LumB non-mutated", "Basal mutated", "Basal non-mutated",
                   "Her2 mutated", "Her2 non-mutated", "Normal mutated", "Normal non-mutated"), 
         xlab = "Tumor subtype and TP53 mutation status", ylab = "HTSeq mRNA counts for TP53 gene")
-
+dev.off()
 
 #Access PIK3CA counts
 #PIK3CA_mask <- rowData(sum_exp)$external_gene_name == "PIK3CA"
